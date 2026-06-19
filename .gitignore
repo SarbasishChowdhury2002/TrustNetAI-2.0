@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# Environment Variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Python Build Files
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Pytest
+.pytest_cache/
+
+# Docker
+docker-data/
+*.pid
+
+# PostgreSQL Data
+postgres_data/
+
+# Streamlit Cache
+.streamlit/
+
+# Model Files (Later)
+models/
+checkpoints/
+*.pt
+*.pth
+*.bin
+
+# Hugging Face Cache
+.cache/
+hf_cache/
+
+# SHAP Outputs
+shap_outputs/
+
+# Temporary Files
+temp/
+tmp/
+
+# Coverage
+.coverage
+htmlcov/
