@@ -64,3 +64,6 @@ tmp/
 # Coverage
 .coverage
 htmlcov/
+
+#BERT model
+trustnetai-bert/
