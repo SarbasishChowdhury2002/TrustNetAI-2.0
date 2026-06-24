@@ -8,7 +8,9 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    - postgres_data:/var/lib/postgresql/data
+    - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
 
   backend:
     build: ./backend
@@ -32,3 +34,21 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@trustnet_kafka:9093
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+
+  consumer:
+    build:
+      context: .
+      dockerfile: consumer/Dockerfile
+
+    container_name: trustnet_consumer
+
+    depends_on:
+      - postgres
+      - kafka
+
+    restart: always
+
+
+volumes:
+    postgres_data:

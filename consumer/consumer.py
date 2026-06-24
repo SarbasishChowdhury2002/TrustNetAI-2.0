@@ -12,7 +12,8 @@ from shared.prediction_service import predict_news
 
 consumer = KafkaConsumer(
     "news_stream",
-    bootstrap_servers="localhost:9092",
+    #bootstrap_servers="localhost:9092",
+    bootstrap_servers="trustnet_kafka:9092",
     auto_offset_reset="earliest",
     value_deserializer=lambda x: json.loads(x.decode("utf-8"))
 )
